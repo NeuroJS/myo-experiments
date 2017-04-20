@@ -3,13 +3,6 @@
 import { Observable } from 'rxjs/Observable';
 import Myo from 'myo';
 
-Myo.onError = error => console.log(error);
-
-Myo.on('connected', function (a) {
-    this.vibrate();
-    this.streamEMG();
-});
-
 const pose$ = Observable.create(subscriber => {
     Myo.on('pose', poseName => subscriber.next(poseName));
 });
@@ -24,7 +17,5 @@ pose$
     .subscribe(poseName => {
         speak(poseName);
     });
-
-Myo.connect('org.neurojs.myo');
 
 export default pose$;
