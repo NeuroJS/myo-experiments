@@ -1,1 +1,4 @@
-# myo-experiments
+# Myo Experiments
+
+* Spoken Pose
+* Slider
